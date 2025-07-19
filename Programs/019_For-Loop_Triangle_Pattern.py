@@ -1,4 +1,4 @@
-# 
+# Triangle Pattern
 
 pattern = input("Enter the pattern: ")
 rows = int(input("Enter the number of rows: "))
