@@ -1,4 +1,4 @@
-# <img src="Programs/Python-Light.svg" width="32" height="32"> Python Programming Notes
+# <img src="Programs/Python-Light.svg" width="32" height="32"> Python Programming Notes By Krutarth Raychura
 
 ✨ Concise explanations and definitions of Python concepts for quick exam reference. 🚀
 
@@ -11,6 +11,9 @@
 4. 🧮 [Basic Operators](#-basic-operators)
 5. 🔄 [Control Flow](#-control-flow)
 6. 🔀 [Conditional Statements](#-conditional-statements)
+7. 📝 [String Formatting](#-string-formatting)
+8. 🔄 [Number Conversions](#-number-conversions)
+9. 🧰 [String Functions](#-string-functions)
 ---
 
 ## 📤 Basic Output
@@ -441,6 +444,83 @@ if x > 0:
         print("x is less than 10")
 else:
     print("x is negative")
+```
+
+## 📝 String Formatting
+
+### 🔤 Formatted Strings using % Operator
+**Definition**: A way to format strings using the % operator, similar to printf in C.
+
+```python
+print("Name: %s, Age: %d" % ("Krutarth", 20))  # Outputs: Name: Krutarth, Age: 20
+
+print("%5.2f" % (3.1415926))  # Outputs:  3.14
+```
+
+### 🔠 F-Strings (Formatted String Literals)
+**Definition**: A concise way to embed expressions inside string literals using curly braces {}.
+
+```python
+name = "Krutarth"
+age = 20
+print(f"Name: {name}, Age: {age}")  # Outputs: Name: Krutarth, Age: 20
+print(f"Value of pi: {3.1415926:.2f}")  # Outputs: Value of pi: 3.14
+```
+
+## 🔄 Number Conversions
+
+### 🔢 Number Base Conversions
+**Definition**: Converting numbers between different bases (decimal, binary, octal, hexadecimal).
+
+```python
+# Decimal to other bases
+decimal_num = 42
+print(bin(decimal_num))  # Outputs: 0b101010 (binary)
+print(oct(decimal_num))  # Outputs: 0o52 (octal)
+print(hex(decimal_num))  # Outputs: 0x2a (hexadecimal)
+
+# Other bases to decimal
+print(int('101010', 2))  # Outputs: 42 (binary to decimal)
+print(int('52', 8))      # Outputs: 42 (octal to decimal)
+print(int('2a', 16))     # Outputs: 42 (hexadecimal to decimal)
+```
+
+### 🔤 Character and ASCII Conversions
+**Definition**: Converting between characters and their ASCII/Unicode values.
+
+```python
+# Character to ASCII value
+print(ord('A'))  # Outputs: 65
+
+# ASCII value to character
+print(chr(65))   # Outputs: A
+```
+
+## 🧰 String Functions
+
+### 📝 str() Function
+**Definition**: Converts an object to its string representation.
+
+```python
+num = 42
+print(str(num))  # Outputs: "42"
+```
+
+### 🔍 eval() Function
+**Definition**: Evaluates a string as a Python expression.
+
+```python
+print(eval('2 + 3 * 4'))  # Outputs: 14
+x = 10
+print(eval('x * 2'))      # Outputs: 20
+```
+
+### 📋 repr() Function
+**Definition**: Returns a string containing a printable representation of an object.
+
+```python
+s = 'Hello\nWorld'
+print(repr(s))  # Outputs: 'Hello\nWorld'
 ```
 
 <div align="center">
