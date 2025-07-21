@@ -10,10 +10,14 @@
 3. ⌨️ [User Input](#-user-input)
 4. 🧮 [Basic Operators](#-basic-operators)
 5. 🔄 [Control Flow](#-control-flow)
+   - 🔁 [For Loop](#-for-loop)
+   - 🔀 [While Loop](#-while-loop)
+   - 🔄 [Loop Control Statements](#-loop-control-statements)
 6. 🔀 [Conditional Statements](#-conditional-statements)
 7. 📝 [String Formatting](#-string-formatting)
 8. 🔄 [Number Conversions](#-number-conversions)
 9. 🧰 [String Functions](#-string-functions)
+10. 🔄 [Loop Exercise Programs](#-loop-exercise-programs)
 ---
 
 ## 📤 Basic Output
@@ -33,8 +37,8 @@ print("Hello World!")  # Outputs: Hello World!
 **Definition**: Variables are containers for storing data values.
 
 ```python
-x = 10        # Integer variable
-name = "John"  # String variable
+x = 21        # Integer variable
+name = "Krutarth"  # String variable
 ```
 
 ### 🏷️ Data Types
@@ -336,6 +340,51 @@ for i in range(4):
 # Loop from 50 to 20 with step -10
 for i in range(50, 10, -10):
     print(i)  # Outputs: 50, 40, 30, 20
+
+# Loop through a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# Loop with index using enumerate
+for index, fruit in enumerate(fruits):
+    print(f"Index {index}: {fruit}")
+```
+
+#### 🔄 For Loop with Else
+**Definition**: A for loop can have an optional else block that executes when the loop completes normally (without a break statement).
+
+```python
+for i in range(5):
+    print(i)
+else:
+    print("Loop completed successfully")
+
+# With break statement (else block won't execute)
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+else:
+    print("This won't be printed")
+```
+
+#### 🔄 Nested For Loops
+**Definition**: A for loop inside another for loop.
+
+```python
+# Print a pattern
+for i in range(1, 6):
+    for j in range(1, i + 1):
+        print("*", end=" ")
+    print()
+
+# Output:
+# * 
+# * * 
+# * * * 
+# * * * * 
+# * * * * * 
 ```
 
 ### 🔀 While Loop
@@ -353,6 +402,58 @@ i = 0
 while i < 4:
     print(i)  # Outputs: 0, 1, 2, 3
     i += 1
+
+# Infinite loop with break
+while True:
+    user_input = input("Enter 'quit' to exit: ")
+    if user_input.lower() == "quit":
+        break
+    print("You entered:", user_input)
+```
+
+#### 🔄 While Loop with Else
+**Definition**: Similar to for loops, while loops can also have an else block that executes when the loop condition becomes false.
+
+```python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+else:
+    print("Loop condition is false now")
+```
+
+### 🔄 Loop Control Statements
+
+#### ⏹️ Break Statement
+**Definition**: Terminates the loop and transfers execution to the statement immediately following the loop.
+
+```python
+for i in range(10):
+    if i == 5:
+        break
+    print(i)  # Outputs: 0, 1, 2, 3, 4
+```
+
+#### ⏭️ Continue Statement
+**Definition**: Skips the rest of the code inside the loop for the current iteration and continues with the next iteration.
+
+```python
+for i in range(10):
+    if i % 2 == 0:  # Skip even numbers
+        continue
+    print(i)  # Outputs: 1, 3, 5, 7, 9
+```
+
+#### 🔄 Pass Statement
+**Definition**: A null statement that does nothing. It's used as a placeholder when a statement is required syntactically but no action is needed.
+
+```python
+for i in range(5):
+    if i == 2:
+        # TODO: Add code later
+        pass
+    print(i)  # Outputs: 0, 1, 2, 3, 4
 ```
 ---
 
@@ -522,6 +623,100 @@ print(eval('x * 2'))      # Outputs: 20
 s = 'Hello\nWorld'
 print(repr(s))  # Outputs: 'Hello\nWorld'
 ```
+
+## 🔄 Loop Exercise Programs
+
+Here are some practical loop exercise programs to practice Python loops:
+
+1. **Print Natural Numbers**: Using while loop to print first 10 natural numbers.
+   ```python
+   i = 1
+   while i <= 10:
+       print(i)
+       i += 1
+   ```
+
+2. **Pattern Printing**: Using nested loops to print patterns.
+   ```python
+   rows = 5
+   for i in range(1, rows + 1):
+       for j in range(1, i + 1):
+           print("*", end=" ")
+       print()
+   ```
+
+3. **Sum of Numbers**: Calculate sum of all numbers from 1 to n.
+   ```python
+   n = 10
+   sum = 0
+   for i in range(1, n + 1):
+       sum += i
+   print(f"Sum: {sum}")  # Outputs: Sum: 55
+   ```
+
+4. **Multiplication Table**: Print multiplication table of a given number.
+   ```python
+   num = 5
+   for i in range(1, 11):
+       print(f"{num} x {i} = {num * i}")
+   ```
+
+5. **Count Digits**: Count the total number of digits in a number.
+   ```python
+   num = 12345
+   count = len(str(num))
+   print(f"Number of digits: {count}")  # Outputs: Number of digits: 5
+   ```
+
+6. **Reverse List**: Print list in reverse order using a loop.
+   ```python
+   my_list = [1, 2, 3, 4, 5]
+   for i in range(len(my_list) - 1, -1, -1):
+       print(my_list[i])
+   ```
+
+7. **Prime Numbers**: Display all prime numbers within a range.
+   ```python
+   start, end = 10, 20
+   for num in range(start, end + 1):
+       if num > 1:
+           for i in range(2, int(num**0.5) + 1):
+               if num % i == 0:
+                   break
+           else:
+               print(num, end=" ")
+   ```
+
+8. **Fibonacci Series**: Display Fibonacci series up to n terms.
+   ```python
+   n = 10
+   a, b = 0, 1
+   print(a, b, end=" ")
+   for i in range(2, n):
+       c = a + b
+       print(c, end=" ")
+       a, b = b, c
+   ```
+
+9. **Factorial**: Find the factorial of a given number.
+   ```python
+   num = 5
+   fact = 1
+   for i in range(1, num + 1):
+       fact *= i
+   print(f"{num}! = {fact}")  # Outputs: 5! = 120
+   ```
+
+10. **Reverse Integer**: Reverse a given integer number.
+    ```python
+    num = 12345
+    reversed_num = 0
+    while num > 0:
+        digit = num % 10
+        reversed_num = reversed_num * 10 + digit
+        num //= 10
+    print(f"Reversed number: {reversed_num}")  # Outputs: Reversed number: 54321
+    ```
 
 <div align="center">
 
