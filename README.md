@@ -17,7 +17,8 @@
 7. 📝 [String Formatting](#-string-formatting)
 8. 🔄 [Number Conversions](#-number-conversions)
 9. 🧰 [String Functions](#-string-functions)
-10. 🔄 [Loop Exercise Programs](#-loop-exercise-programs)
+10. 📋 [Menu-Driven Programming](#-menu-driven-programming)
+11. 🔄 [Loop Exercise Programs](#-loop-exercise-programs)
 ---
 
 ## 📤 Basic Output
@@ -355,19 +356,25 @@ for index, fruit in enumerate(fruits):
 **Definition**: A for loop can have an optional else block that executes when the loop completes normally (without a break statement).
 
 ```python
-for i in range(5):
+# Simple for loop with else
+for i in range(1, 10):
     print(i)
 else:
-    print("Loop completed successfully")
+    print("for loop is over")  # This executes after printing numbers 1-9
 
 # With break statement (else block won't execute)
-for i in range(5):
-    if i == 3:
+for i in range(1, 10):
+    if i == 5:
         break
     print(i)
 else:
-    print("This won't be printed")
+    print("This won't be printed")  # This won't execute because of the break
 ```
+
+**Key Points about Loop with Else**:
+- The else block executes only if the loop completes all iterations normally
+- If a break statement is encountered, the else block is skipped
+- This feature is unique to Python and can be used for implementing search algorithms where you need to know if the search was successful or not
 
 #### 🔄 Nested For Loops
 **Definition**: A for loop inside another for loop.
@@ -412,41 +419,50 @@ while True:
 ```
 
 #### 🔄 While Loop with Else
-**Definition**: Similar to for loops, while loops can also have an else block that executes when the loop condition becomes false.
+**Definition**: Similar to for loops, while loops can also have an else block that executes when the loop condition becomes false (when the loop completes normally without a break statement).
 
 ```python
-i = 0
-while i < 5:
-    print(i)
-    i += 1
+# While loop with else example
+cnt = 1
+while(cnt <= 10):
+    print(cnt)
+    cnt = cnt + 1
 else:
-    print("Loop condition is false now")
+    print("while loop is over")  # This executes when cnt becomes 11
 ```
 
 ### 🔄 Loop Control Statements
 
 #### ⏹️ Break Statement
-**Definition**: Terminates the loop and transfers execution to the statement immediately following the loop.
+**Definition**: Terminates the loop and transfers execution to the statement immediately following the loop. Any code after the break statement in the loop is not executed.
 
 ```python
-for i in range(10):
-    if i == 5:
-        break
-    print(i)  # Outputs: 0, 1, 2, 3, 4
+# Example of break statement
+for i in range(2, 10):
+    if i % 2 == 0:
+        print(f"{i} is even number")
+        break  # Exit loop after finding first even number
+        # This line is never executed
+        num = 3
+print(i)  # Outputs: 2 (the value where the loop was broken)
 ```
 
 #### ⏭️ Continue Statement
-**Definition**: Skips the rest of the code inside the loop for the current iteration and continues with the next iteration.
+**Definition**: Skips the rest of the code inside the loop for the current iteration and continues with the next iteration. Code after the continue statement in the current iteration is not executed.
 
 ```python
-for i in range(10):
-    if i % 2 == 0:  # Skip even numbers
-        continue
-    print(i)  # Outputs: 1, 3, 5, 7, 9
+# Example of continue statement
+for i in range(2, 10):
+    if i % 2 == 0:  # For even numbers
+        print(f"{i} is even number")
+        continue  # Skip to next iteration
+        # This line is never executed
+        num = 3
+print(i)  # Outputs: 9 (the last value in the range)
 ```
 
 #### 🔄 Pass Statement
-**Definition**: A null statement that does nothing. It's used as a placeholder when a statement is required syntactically but no action is needed.
+**Definition**: A null statement that does nothing. It's used as a placeholder when a statement is required syntactically but no action is needed. Unlike break and continue, code after pass is executed normally.
 
 ```python
 for i in range(5):
@@ -623,6 +639,42 @@ print(eval('x * 2'))      # Outputs: 20
 s = 'Hello\nWorld'
 print(repr(s))  # Outputs: 'Hello\nWorld'
 ```
+
+## 📋 Menu-Driven Programming
+**Definition**: A programming approach where users are presented with a menu of options to choose from, and the program executes different actions based on their selection.
+
+### 🔢 Basic Menu Structure
+**Definition**: The fundamental structure of a menu-driven program includes displaying options, getting user input, and executing code based on that input.
+
+```python
+# Basic menu structure
+ch = 9  # Initialize with a value that won't exit immediately
+while(ch != 3):  # Loop until exit option is selected
+    print("**** Menu ****")
+    print("1. Option One")
+    print("2. Option Two")
+    print("3. Exit")
+    
+    ch = int(input("Enter your choice: "))  # Get user choice
+    
+    if(ch == 1):
+        # Code for option 1
+        print("You selected Option One")
+    elif(ch == 2):
+        # Code for option 2
+        print("You selected Option Two")
+    elif(ch == 3):
+        print("Exiting program...")
+    else:
+        print("Invalid choice! Please try again.")
+```
+
+### 💡 Tips for Menu-Driven Programs
+- Always include an exit option to terminate the program
+- Validate user input to handle unexpected entries
+- Use clear and descriptive menu options
+- Consider using a loop to return to the menu after each operation
+- Add error handling for operations that might fail (like division by zero)
 
 ## 🔄 Loop Exercise Programs
 
